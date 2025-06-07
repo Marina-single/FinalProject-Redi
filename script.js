@@ -1,58 +1,55 @@
-let Yassine = {
-  firstName: 'Yassine',
-  lastName: "Latiri",
-  age: 34,
-  isProgrammer: true,
-  favoriteBook: "1984",
-  favoriteFood: "Curry",
-  address: {
-      streetName: "Benzenbergstrasse",
-      streetNumber: "20A",
-      district: "Unter Bilk",
-      city: "Dusseldorf",
-      zipCode: 40239,
-      country: "Germany"
-  }
+function add(){
+
+  let name = document.getElementById('name').value;
+  let date = document.getElementById('date').value;
+  let distance = document.getElementById('distance').value;
+  let description = document.getElementById('description').value;
+  let price = document.getElementById('price').value;
+  let link = document.getElementById('link').value;
+
+  let event =
+    {
+      name:name,
+      date:date,
+      distance:distance,
+      description:description,
+      price:price,
+      link:link
+    };
+
+let events = localStorage.getItem("events")
+
+if (events) {
+  events = JSON.parse(events);  
+} else {
+  events = [];
+}
+
+  events.push (event);
+  localStorage.setItem("events", JSON.stringify(events));
+
+}
+ function render(){
+   let events = JSON.parse(localStorage.getItem ("events"))
+   let eventDiv = document.getElementById("eventblock");
+   eventDiv.innerHTML = ''
+
+   if (events){
+    for (let i = 0; i < events.length; i++){
+      let event = events[i]; 
+      let eventName = document.createElement("h3")
+      let eventDate = document.createElement ("div")
+      eventName.innerText = event.name
+      eventDate.innerText = event.date
+      eventDiv.appendChild(eventName)
+      eventDiv.appendChild(eventDate)
+
+    
+    }
+   }
+ }
+
+ window.onload = function() {
+  render();
 };
 
-let Marina = {
-  firstName: 'Marina',
-  lastName: "Semenova",
-  age: 28,
-  isProgrammer: false,
-  favoriteBook: "1996",
-  favoriteFood: "Pizza",
-  address: {
-      streetName: "strasse",
-      streetNumber: "17",
-      district: "Mundsburg",
-      city: "Hamburg",
-      zipCode: 22087,
-      country: "Germany"
-  }
-};
-
-function deleteSomeProperties(person) {
-  delete person.favoriteFood;
-  delete person.address.district;
-
-}
-
-deleteSomeProperties(Yassine)
-console.log(Yassine)
-
-deleteSomeProperties(Marina)
-console.log(Marina)
-
-function celebrateBirthday (person){
-  person.age+=1
-}
-
-celebrateBirthday(Marina)
-console.log(Marina.age)
-
-function isInGermany(person) {
-return (person.address.country.toLowerCase()==="germany")
-}
-
-console.log(isInGermany(Marina))

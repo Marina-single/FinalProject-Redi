@@ -1,0 +1,103 @@
+.header-menu{
+    display:flex;
+    gap:30px;
+    cursor: pointer;
+}
+
+.header{
+    display:flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+
+}
+
+.header-container{
+    border: 1px solid #E5EBEE;
+
+}
+
+
+.logo{
+    width: 50px;
+}
+
+.slogan p{
+    margin: 0;
+    line-height: 1.2;
+  }
+
+a {
+    text-decoration: none;
+    color:black;
+}
+
+.parent {
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.search-container{
+    display:flex;
+    justify-content: space-between;
+}
+
+.search{
+    width: 600px;
+
+}
+
+.btn {
+    padding: 2px 7px;    
+    color: white;
+    border: none;
+    border-radius: 0%;
+}
+
+.five{
+    background-color: #ffbd39 ;
+}
+
+.ten{
+    background-color:#e61c5d;
+}
+
+
+.half{
+    background-color: #930077;
+}
+
+.marathon{
+    background-color: #3a0088;
+}
+
+.sort-btn{
+    border: 1px solid gray;
+    background-color: lightgray;
+    margin-top: 17px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#eventblock{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+}
+
+.event-form{
+    padding: 10px 100px;
+}
+
+.form-control{
+    background-color:lightgray
+}
+
+.btn-success {
+    background-color: rgb(17, 17, 44);
+    float: right;
+}
