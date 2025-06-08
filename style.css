@@ -47,8 +47,8 @@ a {
 
 }
 
-.btn {
-    padding: 2px 7px;    
+.btn-css {
+    padding: 5px 7px;    
     color: white;
     border: none;
     border-radius: 0%;
@@ -83,11 +83,8 @@ a {
 
 }
 
-#eventblock{
-    display: flex;
-    flex-direction: column;
-    padding-left: 30px;
-}
+
+
 
 .event-form{
     padding: 10px 100px;
@@ -100,4 +97,9 @@ a {
 .btn-success {
     background-color: rgb(17, 17, 44);
     float: right;
+}
+
+.selected-btn{
+    border: 3px solid black;
+
 }

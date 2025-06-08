@@ -33,29 +33,36 @@
         </div>
       </header>
 
-    <div class="container">
-        <div class="search-container">
-            <div class="parent">
-                <div>
-                    <button class="btn five">5k</button>
-                    <button class="btn ten">10k</button>
-                </div>
-                <div>
-                    <button class="btn half">half marathon</button>
-                    <button class="btn marathon">marathon</button>
-                </div>
+    <div class="container py-4">
+        <div class="row g-3 align-items-center justify-content-between">
+      
+          <div class="col-12 col-md-4">
+            <div class="d-flex flex-wrap gap-2 justify-content-md-start justify-content-center">
+              <button class="btn-css five">5k</button>
+              <button class="btn-css ten">10k</button>
+              <button class="btn-css half">Half Marathon</button>
+              <button class="btn-css marathon">Marathon</button>
             </div>
-            <div style="padding-top: 15px;">
-                <input class="search">
-                <button class="search-btn">search</button>
+          </div>
+      
+          <div class="col-12 col-md-4">
+            <div class="input-group justify-content-center">
+              <input type="text" class="form-control" placeholder="Search...">
+              <button class="btn btn-primary" type="button">Search</button>
             </div>
-        
+          </div>
+      
+          <div class="col-12 col-md-4 text-md-end text-center">
+            <button class="btn-css sort-btn" id="sortButton">Sort by Date</button>
+          </div>
+      
         </div>
-    </div>
+      </div>
+      
+<div class="container">
 
- <div id="eventblock">
-    
-
+ <div id="eventblock"> </div>
+ </div>
  </div>
  <script src="script.js"></script>
 </body>
