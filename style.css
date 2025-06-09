@@ -84,8 +84,6 @@ a {
 }
 
 
-
-
 .event-form{
     padding: 10px 100px;
 }
@@ -102,4 +100,27 @@ a {
 .selected-btn{
     border: 3px solid black;
 
+}
+
+.btn-space{
+    margin-right: 8px;
+}
+
+.event-container {
+    display:flex;
+    justify-content: center;
+}
+
+#eventblock{
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.event-row{
+    padding-bottom: 30px;
+}
+
+.price-link-container {
+    align-items: flex-end;
 }
