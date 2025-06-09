@@ -1,53 +1,45 @@
 let selectedDistance = [];
-
-function selectDistance(distance, buttonSelected){
-  if (!selectedDistance.includes(distance)) {
+function selectDistance(distance, buttonSelected) {
+  let indexDistance = selectedDistance.indexOf(distance);
+  if (indexDistance === -1) {
     selectedDistance.push(distance);
     buttonSelected.classList.add("selected-btn")
-  } 
+  }
   else {
-    selectedDistance = selectedDistance.filter(
-      function(d) {
-      if (d !== distance) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-  );
+    selectedDistance.splice(indexDistance, 1)
     buttonSelected.classList.remove("selected-btn")
 
   }
 }
 
-function add(){
+function add() {
 
   let name = document.getElementById('name').value;
   let date = document.getElementById('date').value;
   let price = document.getElementById('price').value;
   let description = document.getElementById('description').value;
   let link = document.getElementById('link').value;
- 
+
 
   let event =
-    {
-      name:name,
-      date:date,
-      distance:selectedDistance,
-      description:description,
-      price:price,
-      link:link
-    };
+  {
+    name: name,
+    date: date,
+    distance: selectedDistance,
+    description: description,
+    price: price,
+    link: link
+  };
 
-let events = localStorage.getItem("events")
+  let events = localStorage.getItem("events")
 
-if (events) {
-  events = JSON.parse(events);  
-} else {
-  events = [];
-}
+  if (events) {
+    events = JSON.parse(events);
+  } else {
+    events = [];
+  }
 
-  events.push (event);
+  events.push(event);
   localStorage.setItem("events", JSON.stringify(events));
 
   document.getElementById('name').value = '';
@@ -63,14 +55,17 @@ if (events) {
 }
 
 
- function render(){
-   let events = JSON.parse(localStorage.getItem ("events"))
-   let eventDiv = document.getElementById("eventblock");
-   eventDiv.innerHTML = ''
+function render() {
+  let events = JSON.parse(localStorage.getItem("events"))
+  let eventDiv = document.getElementById("eventblock");
+  eventDiv.innerHTML = ''
 
-   if (events){
-    for (let i = 0; i < events.length; i++){
-      let event = events[i]; 
+  if (events) {
+    events.sort(function (a, b) {
+      return new Date(a.date) - new Date(b.date);
+    });
+    for (let i = 0; i < events.length; i++) {
+      let event = events[i];
       let eventWrapper = document.createElement("div")
       eventWrapper.classList.add("event-row", "row",)
       let nameDateDistanceCol = document.createElement("div")
@@ -81,18 +76,19 @@ if (events) {
       priceLinkCol.classList.add("col-md-4", "ms-auto", "text-end")
 
       let eventName = document.createElement("h3")
-      let eventDate = document.createElement ("p")
+      eventName.classList.add("name-style")
+      let eventDate = document.createElement("p")
       let eventDescription = document.createElement("p")
       let eventPrice = document.createElement("p")
-      let eventLink = document.createElement ("a")
+      let eventLink = document.createElement("a")
       eventName.innerText = event.name
       eventDate.innerText = event.date
       eventDescription.innerText = event.description
-      eventPrice.innerText = event.price
-      eventLink.innerText = "Buy";
+      eventPrice.innerText = `${event.price} Euro`
+      eventLink.innerText = "link for event>";
       eventLink.href = event.link;
-      eventLink.classList.add("btn", "btn-primary")
-  
+      eventLink.classList.add("link-style")
+
       eventDiv.appendChild(eventWrapper)
       eventWrapper.appendChild(nameDateDistanceCol)
       eventWrapper.appendChild(descriptionCol)
@@ -100,37 +96,37 @@ if (events) {
       nameDateDistanceCol.appendChild(eventName)
       nameDateDistanceCol.appendChild(eventDate)
       descriptionCol.appendChild(eventDescription)
-      priceLinkCol.appendChild (eventPrice)
+      priceLinkCol.appendChild(eventPrice)
       priceLinkCol.appendChild(eventLink)
-      for (let i=0; i<event.distance.length; i++){
+      for (let i = 0; i < event.distance.length; i++) {
         let typeofDistance = event.distance[i]
-        let eventDistance= document.createElement("button")
+        let eventDistance = document.createElement("button")
         eventDistance.innerText = typeofDistance
-        if (typeofDistance=="5K"){
+        if (typeofDistance == "5K") {
           typeofDistance = "5K"
           eventDistance.classList.add("five", "btn-css", "btn-space")
         }
-        else if (typeofDistance=="10K"){
+        else if (typeofDistance == "10K") {
           typeofDistance = "10K"
-          eventDistance.classList.add("ten", "btn-css",  "btn-space")
+          eventDistance.classList.add("ten", "btn-css", "btn-space")
         }
-        else if (typeofDistance=="Half Marathon"){
+        else if (typeofDistance == "Half Marathon") {
           typeofDistance = "Half Marathon"
-          eventDistance.classList.add("half", "btn-css",  "btn-space" )
+          eventDistance.classList.add("half", "btn-css", "btn-space")
         }
-        else{
+        else {
           typeofDistance = "Marathon"
-          eventDistance.classList.add("marathon" , "btn-css",  "btn-space")
+          eventDistance.classList.add("marathon", "btn-css", "btn-space")
         }
 
         nameDateDistanceCol.appendChild(eventDistance)
       }
-    
-    }
-   }
- }
 
- window.onload = function() {
+    }
+  }
+}
+
+window.onload = function () {
   render();
- };
+};
 

@@ -16,6 +16,15 @@
 
 }
 
+.nav-elements:hover{
+    text-decoration: underline;
+    text-decoration-color: #393E46;
+    text-underline-offset: 4px;
+}
+
+.fw-bold{
+    color:#393E46;
+}
 
 .logo{
     width: 50px;
@@ -109,6 +118,7 @@ a {
 .event-container {
     display:flex;
     justify-content: center;
+    padding-top:60px;
 }
 
 #eventblock{
@@ -123,4 +133,29 @@ a {
 
 .price-link-container {
     align-items: flex-end;
+}
+
+.link-style{
+    text-decoration: underline;
+    font-style: italic;
+
+}
+
+.search-btn{
+  background-color: #393E46;
+}
+
+#sortButton{
+    background-color: #393E46;
+}
+
+.name-style{
+    color:#393E46;
+    font-weight: 300;
+}
+
+.doneMessage-style{
+    margin-top: 10px;
+    color: green;
+    font-size:50px;
 }

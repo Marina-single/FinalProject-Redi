@@ -2,70 +2,76 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-    <header class="container py-3 border-bottom">
-        <div class="row align-items-center justify-content-between">
-    
-          <div class="col-12 col-md-6 mb-3 mb-md-0">
-            <a href="main_page.html" class="d-flex align-items-center text-decoration-none text-dark">
-              <img src="running.png" class="me-3" alt="Logo" style="height: 60px;">
-              <div>
-                <p class="mb-0">Find Your Next Race</p>
-                <p class="fw-bold mb-0">in Hamburg!</p>
-              </div>
-            </a>
+  <header class="container py-3 border-bottom">
+    <div class="row align-items-center justify-content-between">
+
+      <div class="col-12 col-md-6 mb-3 mb-md-0">
+        <a href="main_page.html" class="d-flex align-items-center text-decoration-none text-dark">
+          <img src="running.png" class="me-3" alt="Logo" style="height: 60px;">
+          <div>
+            <p class="mb-0">Find Your Next Race</p>
+            <p class="fw-bold mb-0">in Hamburg!</p>
           </div>
-    
-          <nav class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end gap-4">
-            <a href="main_page.html" class="nav-link p-0">Events</a>
-            <a href="add-events-page.html" class="nav-link p-0">Add Events</a>
-            <a href="#" class="nav-link p-0">Contact</a>
-          </nav>
-    
+        </a>
+      </div>
+
+      <nav class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end gap-4">
+        <a href="main_page.html" class="nav-link p-0 nav-elements">Events</a>
+        <a href="add-events-page.html" class="nav-link p-0 nav-elements">Add Events</a>
+        <a href="#" class="nav-link p-0 nav-elements">Contact</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <div class="container mt-5 event-form">
+    <div class="row">
+      <div class="col-12 col-md-6 mb-4">
+        <label for="name" class="form-label">Name</label>
+        <input id="name" type="text" class="form-control" />
+
+        <label for="date" class="form-label mt-3">Date</label>
+        <input id="date" type="date" class="form-control" />
+
+        <label for="description" class="form-label mt-3">Description</label>
+        <textarea id="description" rows="5" class="form-control"></textarea>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <label class="form-label">Distance</label>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <button type="button" class="btn-css five" onclick="selectDistance('5K', this)">5K</button>
+          <button type="button" class="btn-css ten" onclick="selectDistance('10K', this)">10K</button>
+          <button type="button" class="btn-css half" onclick="selectDistance('Half marathon', this)">Half
+            Marathon</button>
+          <button type="button" class="btn-css marathon" onclick="selectDistance('Marathon', this)">Marathon</button>
         </div>
-      </header>
-    
-    <div class="container mt-5 event-form">
-        <div class="row">
-          <div class="col-12 col-md-6 mb-4">
-            <label for="name" class="form-label">Name</label>
-            <input id="name" type="text" class="form-control"/>
-      
-            <label for="date" class="form-label mt-3">Date</label>
-            <input id="date" type="date" class="form-control"/>
-      
-            <label for="description" class="form-label mt-3">Description</label>
-            <textarea id="description" rows="5" class="form-control"></textarea>
-          </div>
-      
-          <div class="col-12 col-md-6">
-            <label class="form-label">Distance</label>
-            <div class="d-flex flex-wrap gap-2 mb-3">
-              <button type="button" class="btn-css five" onclick="selectDistance('5K', this)">5K</button>
-              <button type="button" class="btn-css ten" onclick="selectDistance('10K', this)">10K</button>
-              <button type="button" class="btn-css half" onclick="selectDistance('Half marathon', this)">Half Marathon</button>
-              <button type="button" class="btn-css marathon" onclick="selectDistance('Marathon', this)">Marathon</button>
-            </div>
-      
-            <label for="price" class="form-label">Price</label>
-            <input id="price" type="text" class="form-control"/>
-      
-            <label for="link" class="form-label mt-3">Registration Link</label>
-            <input id="link" type="url" class="form-control"/>
-          </div>
-        </div>
-      
-        <button onclick="add()" type="button" class="btn btn-success">Submit</button>
-      </div>      
-      <div id ="doneMessage"></div>
-    <script src="script.js"></script>
+
+        <label for="price" class="form-label">Price</label>
+        <input id="price" type="text" class="form-control" />
+
+        <label for="link" class="form-label mt-3">Registration Link</label>
+        <input id="link" type="url" class="form-control" />
+      </div>
+    </div>
+
+    <button onclick="add()" type="button" class="btn btn-success">Submit</button>
+  </div>
+  <div id="doneMessage" class="doneMessage-style"></div>
+  <script src="script.js"></script>
 </body>
 
 </html>
