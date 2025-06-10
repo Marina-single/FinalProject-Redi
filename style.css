@@ -17,9 +17,8 @@
 }
 
 .nav-elements:hover{
-    text-decoration: underline;
-    text-decoration-color: #393E46;
-    text-underline-offset: 4px;
+    color:gray;
+
 }
 
 .fw-bold{
@@ -57,10 +56,10 @@ a {
 }
 
 .btn-css {
-    padding: 5px 7px;    
+    padding: 5px 12px;    
     color: white;
     border: none;
-    border-radius: 0%;
+    border-radius: 5px;
 }
 
 .five{
@@ -113,6 +112,7 @@ a {
 
 .btn-space{
     margin-right: 8px;
+    cursor: default !important;
 }
 
 .event-container {
@@ -143,6 +143,7 @@ a {
 
 .search-btn{
   background-color: #393E46;
+  padding: 0px 20px;
 }
 
 #sortButton{

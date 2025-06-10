@@ -98,6 +98,7 @@ function render() {
       descriptionCol.appendChild(eventDescription)
       priceLinkCol.appendChild(eventPrice)
       priceLinkCol.appendChild(eventLink)
+      
       for (let i = 0; i < event.distance.length; i++) {
         let typeofDistance = event.distance[i]
         let eventDistance = document.createElement("button")
@@ -127,6 +128,7 @@ function render() {
 }
 
 window.onload = function () {
+
   render();
 };
 
