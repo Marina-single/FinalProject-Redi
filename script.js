@@ -50,22 +50,31 @@ function add() {
   selectedDistance = [];
   render();
 
-  document.getElementById("doneMessage").innerText = "Done"
 
 }
 
+function filterDistance(distance) {
+  let allEvents = JSON.parse(localStorage.getItem("events")) || [];
+  return allEvents.filter(function(event) {
+    return event.distance.includes(distance);
+  });
+}
 
-function render() {
-  let events = JSON.parse(localStorage.getItem("events"))
+
+
+function render(eventsToRender) {
+  let events = eventsToRender || JSON.parse(localStorage.getItem("events")) || [];
   let eventDiv = document.getElementById("eventblock");
-  eventDiv.innerHTML = ''
+  eventDiv.innerHTML = '';
 
-  if (events) {
+  if (events.length > 0) {
     events.sort(function (a, b) {
       return new Date(a.date) - new Date(b.date);
     });
+
     for (let i = 0; i < events.length; i++) {
       let event = events[i];
+
       let eventWrapper = document.createElement("div")
       eventWrapper.classList.add("event-row", "row",)
       let nameDateDistanceCol = document.createElement("div")
@@ -98,7 +107,7 @@ function render() {
       descriptionCol.appendChild(eventDescription)
       priceLinkCol.appendChild(eventPrice)
       priceLinkCol.appendChild(eventLink)
-      
+
       for (let i = 0; i < event.distance.length; i++) {
         let typeofDistance = event.distance[i]
         let eventDistance = document.createElement("button")
