@@ -48,7 +48,7 @@ function add() {
   document.getElementById('description').value = '';
   document.getElementById('link').value = '';
   selectedDistance = [];
-  window.location.href = "main_page.html"
+  window.location.href = "index.html"
 
 
 }
