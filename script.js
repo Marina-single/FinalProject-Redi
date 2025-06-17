@@ -48,14 +48,35 @@ function add() {
   document.getElementById('description').value = '';
   document.getElementById('link').value = '';
   selectedDistance = [];
-  render();
+  window.location.href = "main_page.html"
 
 
 }
 
+let activeDistanceFilter = null;
+
+function handleDistanceFilterClick(distance, button) {
+  let allButtons = document.querySelectorAll('.distance-filter-btn');
+
+  if (activeDistanceFilter === distance) {
+    activeDistanceFilter = null;
+    button.classList.remove('selected-btn');
+    render();
+  } else {
+    activeDistanceFilter = distance;
+    for (let i = 0; i < allButtons.length; i++) {
+      allButtons[i].classList.remove('selected-btn');
+    }
+    button.classList.add('selected-btn');
+    let filtered = filterDistance(distance);
+    render(filtered);
+  }
+}
+
+
 function filterDistance(distance) {
   let allEvents = JSON.parse(localStorage.getItem("events")) || [];
-  return allEvents.filter(function(event) {
+  return allEvents.filter(function (event) {
     return event.distance.includes(distance);
   });
 }

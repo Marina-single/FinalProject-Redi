@@ -50,9 +50,8 @@ a {
     justify-content: space-between;
 }
 
-.search{
-    width: 600px;
-
+.container-menu{
+    padding-left: 160px;
 }
 
 .btn-css {

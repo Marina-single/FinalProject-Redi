@@ -39,31 +39,17 @@
     </div>
   </header>
 
-  <div class="container py-4">
-    <div class="row align-items-center">
+  <div class="container py-4 container-menu">
 
-      <div class="col-12 col-md-4">
-        <div class="d-flex flex-column gap-2">
-          <div class="d-flex gap-2">
-            <button class="btn-css five" onclick="render(filterDistance('5K'))">5k</button>
-            <button class="btn-css ten" onclick="render(filterDistance('10K'))">10k</button>
-          </div>
-          <div class="d-flex gap-2">
-            <button class="btn-css half" onclick="render(filterDistance('Half marathon'))">Half Marathon</button>
-            <button class="btn-css marathon" onclick="render('Marathon')">Marathon</button>
-          </div>
-        </div>
-      </div>
+    <div class="d-flex gap-2">
+      <button class="btn-css five distance-filter-btn" onclick="handleDistanceFilterClick('5K', this)">5k</button>
+      <button class="btn-css ten distance-filter-btn" onclick="handleDistanceFilterClick('5K', this)">10k</button>
 
-      <div class="col-12 col-md-4 my-2 my-md-0">
-        <div class="input-group justify-content-center">
-          <input type="text" class="form-control" placeholder="Search...">
-          <button class="btn-css search-btn" type="button">Search</button>
-        </div>
-      </div>
-
+      <button class="btn-css half distance-filter-btn" onclick="handleDistanceFilterClick('5K', this)">Half
+        Marathon</button>
+      <button class="btn-css marathon distance-filter-btn"
+        onclick="handleDistanceFilterClick('5K', this)">Marathon</button>
     </div>
-  </div>
   </div>
 
   <div class="container event-container">
